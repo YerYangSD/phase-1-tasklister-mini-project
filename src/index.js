@@ -1,24 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const form = document.querySelector("form");
-//   form.addEventListener("submit", (event) => {
-//     event.preventDefault();
-//     buildToDo(event.target["new-task-description"].value);
-//     form.reset();
-//   });
-// });
-// function buildToDo(toDoList) {
-//   const ul = document.querySelector("#tasks");
-//   const btn = document.createElement("button");
-//   btn.addEventListener("click", handleDelete);
-//   btn.textContent = "x";
-//   ul.textContent = `${toDoList} `;
-//   console.log(ul);
-//   ul.appendChild(btn);
-// }
-// function handleDelete(event) {
-//   event.target.parentNode.remove();
-// }
-
 document.addEventListener("DOMContentLoaded", () => {
   addingEventListeners();
 });
@@ -59,12 +38,12 @@ function deleteTask(event) {
 }
 
 function getPriorityColor(priorityLevel) {
-    //console.log(priorityLevel);
-    if (priorityLevel === 1) {
-      return "red";
-    } else if (priorityLevel === 2){
-      return "orange";
-    } else {
-      return "yellow";
-    }
+  //console.log(priorityLevel);
+  if (priorityLevel === 1) {
+    return "red";
+  } else if (priorityLevel === 2) {
+    return "orange";
+  } else {
+    return "yellow";
+  }
 }
