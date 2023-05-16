@@ -39,9 +39,18 @@ function handleFormSubmit(event) {
 
 function displayTask(task) {
   const taskUl = document.getElementById("tasks");
- // console.log(taskUl);
- const taskLi = document.createElement("li");
- taskLi.textContent = task;
- //console.log(taskLi);
- taskUl.appendChild(taskLi);
+  // console.log(taskUl);
+  const taskLi = document.createElement("li");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "x";
+  deleteBtn.addEventListener("click", deleteTask);
+  taskLi.textContent = `${task} `;
+  //console.log(taskLi);
+  taskLi.appendChild(deleteBtn);
+  taskUl.appendChild(taskLi);
+}
+
+function deleteTask(event) {
+  //console.log(event)
+  event.target.parentNode.remove();
 }
