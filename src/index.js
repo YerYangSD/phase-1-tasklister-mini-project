@@ -34,10 +34,12 @@ function handleFormSubmit(event) {
   //console.log(event);
   const task = event.target[0].value;
   //console.log(task);
-  displayTask(task);
+  const priorityLevel = parseInt(event.target[1].value);
+  //console.log(priorityLevel);
+  displayTask(task, priorityLevel);
 }
 
-function displayTask(task) {
+function displayTask(task, priorityLevel) {
   const taskUl = document.getElementById("tasks");
   // console.log(taskUl);
   const taskLi = document.createElement("li");
@@ -46,6 +48,7 @@ function displayTask(task) {
   deleteBtn.addEventListener("click", deleteTask);
   taskLi.textContent = `${task} `;
   //console.log(taskLi);
+  taskLi.style.color = getPriorityColor(priorityLevel);
   taskLi.appendChild(deleteBtn);
   taskUl.appendChild(taskLi);
 }
@@ -53,4 +56,15 @@ function displayTask(task) {
 function deleteTask(event) {
   //console.log(event)
   event.target.parentNode.remove();
+}
+
+function getPriorityColor(priorityLevel) {
+    //console.log(priorityLevel);
+    if (priorityLevel === 1) {
+      return "red";
+    } else if (priorityLevel === 2){
+      return "orange";
+    } else {
+      return "yellow";
+    }
 }
